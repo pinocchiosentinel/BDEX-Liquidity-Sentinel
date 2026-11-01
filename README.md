@@ -28,7 +28,7 @@ Vercel configuration is included. The public assets are served statically and `a
 4. Deploy. After the deployment completes, check `/api/health`, `/api/pools?type=all`, and a pool route such as `/api/pool/0xa70362de14f8140c3e58118f8bc2ccaefb116a30` on the assigned Vercel domain.
 5. Optional local/deployment smoke check: `npm run vercel:check` (set `SMOKE_URL=https://your-project.vercel.app` to check the hosted deployment).
 
-The server's `npm run dev` command remains for local use and is not the Vercel entry point. Vercel functions are stateless, so do not rely on in-memory history or background polling. Function duration/rate limits can affect upstream calls; failures are surfaced as provider errors, not zero metrics. This configuration does not itself push code or create a Vercel project.
+The server's `npm run dev` command remains for local use and is not the Vercel entry point. Vercel functions are stateless, so do not rely on in-memory history or background polling. Function duration/rate limits can affect upstream calls; failures are surfaced as provider errors, not zero metrics. This configuration does not itself push code or create a Vercel project. If upgrading a previous deployment, push the route fix and redeploy; then check `/api/healthz` and `/api/pools?type=all`.
 
 ## Testnet deployment
 

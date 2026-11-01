@@ -6,7 +6,7 @@ This document prepares the current read-only alpha for a **testnet-only** hosted
 
 Vercel serves `public/` as static output and deploys `api/[...path].mjs` as a Node function. In Vercel import the GitHub repo, use Framework Preset `Other`, root directory `/`, and leave build/output overrides blank. Set `APP_ENV=testnet-deployment`, `BOT_RPC_URL=https://rpc.bohr.life`, and `BDEX_API_BASE_URL=https://dex-wallet.bohr.life`. Never configure the testnet deployer private key in Vercel; UI/API is read-only. After deploy, smoke-test `/api/healthz`, `/api/health`, `/api/pools?type=all`, and a pool detail API route.
 
-`vercel.json` applies the read-only API function duration, API rewrite and security headers. `npm run vercel:check` checks local or hosted endpoints (`SMOKE_URL` selects host). No Vercel authentication token is available in this workspace; GitHub import and deployment must be completed from your Vercel account.
+`vercel.json` applies read-only API function duration and security headers. API routes use explicit files under `api/` (plus shared handler), not a rewrite to a bracketed static path. `npm run test:vercel` checks handler route dispatch; `npm run vercel:check` checks local or hosted endpoints (`SMOKE_URL` selects host). No Vercel authentication token is available in this workspace; GitHub import and deployment must be completed from your Vercel account.
 
 ## Included deployment files
 

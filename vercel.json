@@ -3,11 +3,11 @@
   "functions": {
     "api/[...path].mjs": {
       "maxDuration": 30
+    },
+    "api/**/*.mjs": {
+      "maxDuration": 30
     }
   },
-  "rewrites": [
-    { "source": "/api/:path*", "destination": "/api/[...path]" }
-  ],
   "headers": [
     {
       "source": "/(.*)",

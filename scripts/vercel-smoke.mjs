@@ -1,5 +1,5 @@
 const base = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : (process.env.SMOKE_URL ?? 'http://localhost:3000');
-const checks = ['/', '/pool.html?address=0xa70362de14f8140c3e58118f8bc2ccaefb116a30', '/api/health', '/api/pools?type=all', '/api/pool/0xa70362de14f8140c3e58118f8bc2ccaefb116a30'];
+const checks = ['/', '/pool.html?address=0xa70362de14f8140c3e58118f8bc2ccaefb116a30', '/healthz', '/api/health', '/api/pools?type=all', '/api/pool/0xa70362de14f8140c3e58118f8bc2ccaefb116a30'];
 let failed = false;
 for (const path of checks) {
   try {
