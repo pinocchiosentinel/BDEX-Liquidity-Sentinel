@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: bdex-liquidity-sentinel-testnet
+    runtime: docker
+    plan: starter
+    healthCheckPath: /healthz
+    envVars:
+      - key: APP_ENV
+        value: testnet-deployment
+      - key: NODE_ENV
+        value: production
+      - key: BOT_RPC_URL
+        value: https://rpc.bohr.life
+      - key: BDEX_API_BASE_URL
+        value: https://dex-wallet.bohr.life

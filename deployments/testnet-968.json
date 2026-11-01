@@ -1,0 +1,10 @@
+{
+  "chainId": 968,
+  "contract": "AnalyticsRegistry",
+  "address": "0x2c0E9a12aAa4E12f8693D670C2C674bAAad8151b",
+  "deployer": "0x7630be97DBE2688f29eE12429a30784BefE083E5",
+  "transactionHash": "0xde441b6acba33a4c05548e0f7b2b6dc027fc35b42ac4a723738b739d2788128f",
+  "blockNumber": 28839540,
+  "explorer": "https://scan.bohr.life/address/0x2c0E9a12aAa4E12f8693D670C2C674bAAad8151b",
+  "verifiedOnChainAt": "2026-10-31T23:25:43.000Z"
+}
