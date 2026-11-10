@@ -8,7 +8,7 @@ function updateNetworkBadge(chainId, chainName, explorerUrl) {
   if (nameEl) nameEl.textContent = chainName || (chainId === 968 ? 'BOT Chain Testnet' : 'BOT Chain Mainnet');
   if (idEl) idEl.textContent = chainId;
   if (explorerUrl) explorerBase = explorerUrl;
-  document.querySelectorAll('a[href^="https://scan.bohr.life/"]').forEach((a) => {
+  document.querySelectorAll('a[href="https://scan.bohr.life"], a[href^="https://scan.bohr.life/"]').forEach((a) => {
     a.href = a.href.replace('https://scan.bohr.life', explorerBase);
   });
   const shown = nameEl ? nameEl.textContent : 'BDEX Liquidity Sentinel';

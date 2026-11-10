@@ -9,6 +9,9 @@ fetch('/api/healthz').then((r) => r.json()).then((h) => {
   if (nameEl) nameEl.textContent = h.chainName || (h.chainId === 968 ? 'BOT Chain Testnet' : 'BOT Chain Mainnet');
   if (idEl) idEl.textContent = h.chainId;
   if (h.explorerUrl) explorerBase = h.explorerUrl;
+  document.querySelectorAll('a[href="https://scan.bohr.life"], a[href^="https://scan.bohr.life/"]').forEach((a) => {
+    a.href = a.href.replace('https://scan.bohr.life', explorerBase);
+  });
   document.title = `BDEX Liquidity Sentinel · ${nameEl ? nameEl.textContent : 'BDEX Liquidity Sentinel'}`;
 }).catch(() => {});
 try {
