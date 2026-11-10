@@ -1,0 +1,10 @@
+{
+  "chainId": 677,
+  "contract": "AnalyticsRegistry",
+  "address": "0x4004Fe0bB0625A4B090DF69Cc6fff7F8c89e91a9",
+  "deployer": "0x1c14DC7d6fF624Ab8Dd3E6b2bFb1051D1AaE0d8d",
+  "transactionHash": "0xed54cba025d1c697071e4c6181b32813f97eac3f99c7f81821b559c99de03e7f",
+  "blockNumber": 29773997,
+  "explorer": "https://scan.botchain.ai/address/0x4004Fe0bB0625A4B090DF69Cc6fff7F8c89e91a9",
+  "verifiedOnChainAt": "2026-11-10T12:49:00.435Z"
+}

@@ -37,7 +37,7 @@ export default async function handler(request, response) {
       if (!isAddress(address)) return json(response, 400, { error: 'Invalid address.' });
       return json(response, 200, segments.length === 3 ? await addressLogs(address) : await addressInfo(address));
     }
-    if (routePath === '/healthz') return json(response, 200, { status: 'ok', chainId: config.chainId, observedAt: new Date().toISOString() });
+    if (routePath === '/healthz') return json(response, 200, { status: 'ok', chainId: config.chainId, chainName: config.chainName, explorerUrl: config.explorerUrl, observedAt: new Date().toISOString() });
     return json(response, 404, { error: 'API route not found.' });
   } catch (error) {
     console.error('Vercel API request failed:', error instanceof Error ? error.message : error);

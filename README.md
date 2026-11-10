@@ -90,4 +90,8 @@ npm test
 - Full V3 NFT positions, locker record enumeration, event backfill/pagination, reorg handling, database persistence, historical data, alerts, authentication, and mainnet support are not implemented.
 - No USD valuation, IL, execution simulation, risk score, or LP safety claim is produced.
 
+## Mainnet promotion gate
+
+Mainnet is intentionally not enabled by default. Copy `.env.mainnet.example` to a secret-managed environment and populate every value from the official BOT mainnet release documentation; this repository does not guess mainnet chain IDs, endpoints, or contract addresses. `APP_ENV=mainnet` fails closed unless all endpoints, addresses, and a non-testnet chain ID are present. Run `npm test` and then `npm run predeploy:mainnet` against the real RPC before changing the hosting environment. The preflight is read-only and does not deploy contracts or create credentials. Confirm provider rate limits, monitoring, TLS, backups/rollback, and an owner-controlled hosting account separately.
+
 See `docs/TESTNET-ALPHA.md` for live validation evidence and next steps.

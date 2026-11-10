@@ -52,7 +52,7 @@ const server = createServer(async (req, res) => {
   }
 });
 const port = Number(process.env.PORT ?? 3000);
-server.listen(port, '0.0.0.0', () => console.log(`BDEX Liquidity Sentinel testnet alpha listening on ${port} (chain ${config.chainId})`));
+server.listen(port, '0.0.0.0', () => console.log(`BDEX Liquidity Sentinel listening on ${port} (${config.chainName}, chain ${config.chainId})`));
 for (const signal of ['SIGINT', 'SIGTERM']) {
   process.on(signal, () => server.close(() => process.exit(0)));
 }

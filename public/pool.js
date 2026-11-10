@@ -2,6 +2,15 @@ const q = new URLSearchParams(location.search); const address = q.get('address')
 const $ = (id) => document.getElementById(id);
 const fmt = (v) => v === undefined || v === null || v === '' ? '—' : String(v);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+let explorerBase = 'https://scan.bohr.life';
+fetch('/api/healthz').then((r) => r.json()).then((h) => {
+  const nameEl = $('network-name');
+  const idEl = $('network-id');
+  if (nameEl) nameEl.textContent = h.chainName || (h.chainId === 968 ? 'BOT Chain Testnet' : 'BOT Chain Mainnet');
+  if (idEl) idEl.textContent = h.chainId;
+  if (h.explorerUrl) explorerBase = h.explorerUrl;
+  document.title = `BDEX Liquidity Sentinel · ${nameEl ? nameEl.textContent : 'BDEX Liquidity Sentinel'}`;
+}).catch(() => {});
 try {
   if (!/^0x[a-f\d]{40}$/i.test(address ?? '')) throw new Error('Missing or invalid pool address.');
   const response = await fetch(`/api/pool/${encodeURIComponent(address)}`); const result = await response.json(); if (!response.ok) throw new Error(result.error ?? 'Request failed');
